@@ -13,7 +13,7 @@ set -e
 # Git commits
 : ${CSOURCES_COMMIT:=a8a5241f9475099c823cfe1a5e0ca4022ac201ff} # 1.0.11 + support for Apple's M1
 : ${NIMBLE_COMMIT:=d13f3b8ce288b4dc8c34c219a4e050aaeaf43fc9} # 0.13.1
-: ${NIM_COMMIT:=nimbus} # could be a (partial) commit hash, a tag, a branch name, etc.
+: ${NIM_COMMIT:=121628357ec7fae91335bd392f03b0e6dd249319} # could be a (partial) commit hash, a tag, a branch name, etc.
 NIM_COMMIT_HASH="" # full hash for NIM_COMMIT, retrieved in "nim_needs_rebuilding()"
 
 # script arguments
