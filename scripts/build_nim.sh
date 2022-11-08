@@ -13,7 +13,7 @@ set -e
 # Git commits
 : ${CSOURCES_COMMIT:=a8a5241f9475099c823cfe1a5e0ca4022ac201ff} # 1.0.11 + support for Apple's M1
 : ${NIMBLE_COMMIT:=d13f3b8ce288b4dc8c34c219a4e050aaeaf43fc9} # 0.13.1
-: ${NIM_COMMIT:=121628357ec7fae91335bd392f03b0e6dd249319} # could be a (partial) commit hash, a tag, a branch name, etc.
+: ${NIM_COMMIT:=121628357ec7fae91335bd392f03b0e6dd249319} # a (partial) commit hash
 NIM_COMMIT_HASH="" # full hash for NIM_COMMIT, retrieved in "nim_needs_rebuilding()"
 
 # script arguments
@@ -73,7 +73,7 @@ nim_needs_rebuilding() {
 		fi
 		# In case the local branch diverged and a fast-forward merge is not possible.
 		git fetch || true
-		git reset -q --hard origin/${NIM_COMMIT} 2>/dev/null || true
+		git reset -q --hard ${NIM_COMMIT} 2>/dev/null || true
 		# In case NIM_COMMIT is a local branch that's behind the remote one it's tracking.
 		git pull -q 2>/dev/null || true
 		git checkout -q ${NIM_COMMIT}
